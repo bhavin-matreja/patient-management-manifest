@@ -1,0 +1,29 @@
+# Ignore Helm chart temporary files
+*.tgz
+
+# Ignore Helm release history (if stored locally)
+helm-history/
+
+# Ignore local IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore .DS_Store (macOS)
+.DS_Store
+
+# Ignore any local values override files
+values.override.yaml
+
+# Ignore user-specific files
+*.local
+
+# Optional: Ignore generated manifests if you use `helm template` locally
+generated-manifests/
