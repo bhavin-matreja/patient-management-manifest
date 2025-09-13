@@ -101,7 +101,7 @@ livenessProbe:
   httpGet:
     path: /
     port: 4000
-  initialDelaySeconds: 60  # Wait for app to start
+  initialDelaySeconds: 120  # Wait for app to start
   periodSeconds: 10
   timeoutSeconds: 5
   failureThreshold: 3
@@ -109,7 +109,7 @@ readinessProbe:
   httpGet:
     path: /
     port: 4000
-  initialDelaySeconds: 60  # Wait for app to start
+  initialDelaySeconds: 120  # Wait for app to start
   periodSeconds: 10
   timeoutSeconds: 5
   failureThreshold: 3
