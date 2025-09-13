@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "patient-service-db.fullname" . }}
+  name: patient-service-db
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "patient-service-db.labels" . | nindent 4 }}
