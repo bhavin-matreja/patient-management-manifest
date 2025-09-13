@@ -32,6 +32,10 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      initContainers:
+        - name: wait-for-postgres
+          image: busybox
+          command: ['sh', '-c', 'until nc -z patient-service-db 5432; do echo waiting for db; sleep 2; done;']
       containers:
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
