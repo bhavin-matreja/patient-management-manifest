@@ -100,7 +100,7 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /
-    port: http
+    port: 4000
   initialDelaySeconds: 60  # Wait for app to start
   periodSeconds: 10
   timeoutSeconds: 5
@@ -108,7 +108,7 @@ livenessProbe:
 readinessProbe:
   httpGet:
     path: /
-    port: http
+    port: 4000
   initialDelaySeconds: 60  # Wait for app to start
   periodSeconds: 10
   timeoutSeconds: 5
