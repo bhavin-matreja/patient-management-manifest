@@ -99,17 +99,17 @@ resources: {}
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   httpGet:
-    path: /
+    path: /actuator/health
     port: 4000
-  initialDelaySeconds: 300  # Wait for app to start
+  initialDelaySeconds: 80  # Wait for app to start
   periodSeconds: 10
   timeoutSeconds: 5
   failureThreshold: 3
 readinessProbe:
   httpGet:
-    path: /
+    path: /actuator/health
     port: 4000
-  initialDelaySeconds: 300  # Wait for app to start
+  initialDelaySeconds: 80  # Wait for app to start
   periodSeconds: 10
   timeoutSeconds: 5
   failureThreshold: 3
