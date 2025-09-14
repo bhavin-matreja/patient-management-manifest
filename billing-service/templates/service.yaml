@@ -11,5 +11,8 @@ spec:
       targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
       name: http
+    - name: grpc
+      port: 9001
+      targetPort: 9001
   selector:
     {{- include "billing-service.selectorLabels" . | nindent 4 }}
