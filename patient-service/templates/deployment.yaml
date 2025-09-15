@@ -65,28 +65,28 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           env:
-            - name: BILLING_SERVICE_ADDRESS
-              value: "{{ .Values.env.BILLING_SERVICE_ADDRESS }}"
-            - name: BILLING_SERVICE_GRPC_PORT
-              value: "{{ .Values.env.BILLING_SERVICE_GRPC_PORT }}"
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: "{{ .Values.env.SPRING_DATASOURCE_PASSWORD }}"
-            - name: SPRING_DATASOURCE_URL
-              value: "{{ .Values.env.SPRING_DATASOURCE_URL }}"
-            - name: SPRING_DATASOURCE_USERNAME
-              value: "{{ .Values.env.SPRING_DATASOURCE_USERNAME }}"
-            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-              value: "{{ .Values.env.SPRING_JPA_HIBERNATE_DDL_AUTO }}"
-            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
-              value: "{{ .Values.env.SPRING_KAFKA_BOOTSTRAP_SERVERS }}"
-            - name: SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL
-              value: "{{ .Values.env.SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL }}"
-            - name: SPRING_KAFKA_PROPERTIES_SASL_MECHANISM
-              value: "{{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_MECHANISM }}"
-            - name: SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG
-              value: "{{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG }}"
-            - name: SPRING_SQL_INIT_MODE
-              value: "{{ .Values.env.SPRING_SQL_INIT_MODE }}"
+          - name: BILLING_SERVICE_ADDRESS
+            value: {{ .Values.env.BILLING_SERVICE_ADDRESS | quote }}
+          - name: BILLING_SERVICE_GRPC_PORT
+            value: {{ .Values.env.BILLING_SERVICE_GRPC_PORT | quote }}
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: {{ .Values.env.SPRING_DATASOURCE_PASSWORD | quote }}
+          - name: SPRING_DATASOURCE_URL
+            value: {{ .Values.env.SPRING_DATASOURCE_URL | quote }}
+          - name: SPRING_DATASOURCE_USERNAME
+            value: {{ .Values.env.SPRING_DATASOURCE_USERNAME | quote }}
+          - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+            value: {{ .Values.env.SPRING_JPA_HIBERNATE_DDL_AUTO | quote }}
+          - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+            value: {{ .Values.env.SPRING_KAFKA_BOOTSTRAP_SERVERS | quote }}
+          - name: SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL
+            value: {{ .Values.env.SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL | quote }}
+          - name: SPRING_KAFKA_PROPERTIES_SASL_MECHANISM
+            value: {{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_MECHANISM | quote }}
+          - name: SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG
+            value: {{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG | quote }}
+          - name: SPRING_SQL_INIT_MODE
+            value: {{ .Values.env.SPRING_SQL_INIT_MODE | quote }}
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
