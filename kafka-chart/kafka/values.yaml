@@ -127,14 +127,7 @@ affinity: {}
 
 #Added
 auth:
-  enabled: true
-  username: user1
-  password: TtFokkZeDD
-
-listeners:
-  client:
-    enabled: true
-    port: 9092
+  enabled: false
 
 metrics:
   enabled: false
