@@ -139,7 +139,7 @@ listeners:
 metrics:
   enabled: false
 
-env:
+extraEnv:
   - name: KAFKA_CFG_PROCESS_ROLES
     value: "broker,controller"
   - name: KAFKA_CFG_NODE_ID
