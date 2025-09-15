@@ -79,6 +79,12 @@ spec:
               value: "{{ .Values.env.SPRING_JPA_HIBERNATE_DDL_AUTO }}"
             - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
               value: "{{ .Values.env.SPRING_KAFKA_BOOTSTRAP_SERVERS }}"
+            - name: SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL
+              value: "{{ .Values.env.SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL }}"
+            - name: SPRING_KAFKA_PROPERTIES_SASL_MECHANISM
+              value: "{{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_MECHANISM }}"
+            - name: SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG
+              value: "{{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG }}"
             - name: SPRING_SQL_INIT_MODE
               value: "{{ .Values.env.SPRING_SQL_INIT_MODE }}"
       {{- with .Values.volumes }}
