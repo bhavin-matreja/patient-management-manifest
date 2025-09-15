@@ -138,3 +138,15 @@ listeners:
 
 metrics:
   enabled: false
+
+env:
+  - name: KAFKA_CFG_PROCESS_ROLES
+    value: "broker,controller"
+  - name: KAFKA_CFG_NODE_ID
+    value: "1"
+  - name: KAFKA_CFG_LISTENERS
+    value: "PLAINTEXT://:9092"
+  - name: KAFKA_CFG_ADVERTISED_LISTENERS
+    value: "PLAINTEXT://kafka.default.svc.cluster.local:9092"
+  - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+    value: "PLAINTEXT:PLAINTEXT"
