@@ -47,6 +47,12 @@ spec:
           env:
             - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
               value: {{ .Values.env.SPRING_KAFKA_BOOTSTRAP_SERVERS | quote }}
+            - name: SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL
+              value: {{ .Values.env.SPRING_KAFKA_PROPERTIES_SECURITY_PROTOCOL | quote }}
+            - name: SPRING_KAFKA_PROPERTIES_SASL_MECHANISM
+              value: {{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_MECHANISM | quote }}
+            - name: SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG
+              value: {{ .Values.env.SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG | quote }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
