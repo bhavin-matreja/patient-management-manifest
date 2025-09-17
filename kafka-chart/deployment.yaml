@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: kafka
-    targetRevision: 16.2.0   # Pin the stable version
+    targetRevision: 32.4.3
     helm:
       values: |
         replicaCount: 1
