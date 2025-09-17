@@ -32,6 +32,10 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      initContainers:
+        - name: wait-for-kafka
+          image: busybox
+          command: ['sh', '-c', 'until nc -z kafka.default.svc.cluster.local 9092; do echo "Waiting for Kafka..."; sleep 5; done']
       containers:
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
@@ -40,6 +44,9 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+              value: {{ .Values.env.SPRING_KAFKA_BOOTSTRAP_SERVERS | quote }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
@@ -57,9 +64,6 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.volumeMounts }}
-          env:
-            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
-              value: {{ .Values.env.SPRING_KAFKA_BOOTSTRAP_SERVERS | quote }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
